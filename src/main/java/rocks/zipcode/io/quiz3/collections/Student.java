@@ -1,30 +1,58 @@
 package rocks.zipcode.io.quiz3.collections;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * @author leon on 10/12/2018.
  */
 public class Student {
+    List<Lab> labs;
 
     public Student() {
-        this(null);
+        labs = new ArrayList<>();
     }
 
-    public Student(List<Lab> labs) {
+    public Student(List<Lab> inputLabs) {
+        labs = new ArrayList<>();
+
+        for (Lab element : inputLabs) {
+            this.labs.add(element);
+        }
     }
 
     public Lab getLab(String labName) {
+        for (Lab element : labs) {
+            if (element.getName().equals(labName)) {
+                return element;
+            }
+        }
         return null;
     }
 
-    public void setLabStatus(String labName, LabStatus labStatus) {
+    public void setLabStatus(String labName, LabStatus labStatus)
+    {
+        try {
+            Lab labToChange = getLab(labName);
+            labToChange.setStatus(labStatus);
+        }
+        catch (Exception e)
+        {
+            throw new UnsupportedOperationException();
+        }
     }
 
     public void forkLab(Lab lab) {
+        labs.add(lab);
     }
 
     public LabStatus getLabStatus(String labName) {
+        for (Lab element : labs) {
+            if (element.getName().equals(labName)) {
+                return element.getStatus();
+            }
+        }
         return null;
     }
 }

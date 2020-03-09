@@ -12,7 +12,8 @@ public class ArrayUtility<SomeType> {
         this.array = array;
     }
 
-    public SomeType findOddOccurringValue() {
+    public SomeType findOddOccurringValue()
+    {
         return null;
     }
 
@@ -20,8 +21,19 @@ public class ArrayUtility<SomeType> {
         return null;
     }
 
-    public Integer getNumberOfOccurrences(SomeType valueToEvaluate) {
-        return null;
+    public Integer getNumberOfOccurrences(SomeType valueToEvaluate)
+    {
+        Integer occurrences = 0;
+
+        for(Integer i =0; i < array.length; i++)
+        {
+            if(array[i].equals(valueToEvaluate))
+            {
+                occurrences++;
+            }
+        }
+
+        return occurrences;
     }
 
     public SomeType[] filter(Function<SomeType, Boolean> predicate) {
