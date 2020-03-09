@@ -5,7 +5,20 @@ package rocks.zipcode.io.quiz3.fundamentals;
  */
 public class VowelUtils {
     public static Boolean hasVowels(String word) {
-        return null;
+        char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+        char[] phrase = word.toCharArray();
+
+        for(Integer i = 0; i < phrase.length; i++)
+        {
+            for(Integer k = 0; k < vowels.length; k++)
+            {
+                if(phrase[i] == vowels[k])
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public static Integer getIndexOfFirstVowel(String word) {
