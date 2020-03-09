@@ -61,12 +61,12 @@ public class Student {
     {
         StringBuilder output = new StringBuilder();
 
-        for(Integer i = 0; i < labs.size(); i++)
+        for(Integer i = labs.size() - 1; i > - 1; i--)
         {
             Lab currentLab = labs.get(i);
-            output.append(String.format("%s > %s", currentLab.getName(), currentLab.getStatus()));
+            output.append(String.format("%s > %s\n", currentLab.getName(), currentLab.getStatus()));
         }
 
-        return output.toString();
+        return output.substring(0, output.length() - 1);
     }
 }
