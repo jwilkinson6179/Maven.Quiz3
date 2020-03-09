@@ -55,4 +55,18 @@ public class Student {
         }
         return null;
     }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder output = new StringBuilder();
+
+        for(Integer i = 0; i < labs.size(); i++)
+        {
+            Lab currentLab = labs.get(i);
+            output.append(String.format("%s > %s", currentLab.getName(), currentLab.getStatus()));
+        }
+
+        return output.toString();
+    }
 }
