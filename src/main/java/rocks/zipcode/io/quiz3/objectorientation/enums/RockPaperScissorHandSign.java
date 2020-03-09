@@ -9,13 +9,24 @@ public enum RockPaperScissorHandSign
     PAPER,
     SCISSOR;
 
+    private RockPaperScissorHandSign winner;
+    private RockPaperScissorHandSign loser;
 
+    static
+    {
+        ROCK.winner = PAPER;
+        ROCK.loser = SCISSOR;
+        PAPER.winner = SCISSOR;
+        PAPER.loser = ROCK;
+        SCISSOR.winner = ROCK;
+        SCISSOR.loser = PAPER;
+    }
 
     public RockPaperScissorHandSign getWinner() {
-        return null;
+        return this.winner;
     }
 
     public RockPaperScissorHandSign getLoser() {
-        return null;
+        return this.loser;
     }
 }

@@ -1,5 +1,6 @@
 package rocks.zipcode.io.quiz3.generics;
 
+import java.lang.reflect.Array;
 import java.util.function.Function;
 
 /**
@@ -14,10 +15,29 @@ public class ArrayUtility<SomeType> {
 
     public SomeType findOddOccurringValue()
     {
+        for(Integer i = 0; i < array.length; i++)
+        {
+            Integer occurrencesOfElement = getNumberOfOccurrences(array[i]);
+
+            if(occurrencesOfElement % 2 != 0)
+            {
+                return array[i];
+            }
+        }
         return null;
     }
 
-    public SomeType findEvenOccurringValue() {
+    public SomeType findEvenOccurringValue()
+    {
+        for(Integer i = 0; i < array.length; i++)
+        {
+            Integer occurrencesOfElement = getNumberOfOccurrences(array[i]);
+
+            if(occurrencesOfElement % 2 == 0)
+            {
+                return array[i];
+            }
+        }
         return null;
     }
 
@@ -36,7 +56,10 @@ public class ArrayUtility<SomeType> {
         return occurrences;
     }
 
-    public SomeType[] filter(Function<SomeType, Boolean> predicate) {
-        return null;
+    public SomeType[] filter(Function<SomeType, Boolean> predicate)
+    {
+        SomeType[] output = (SomeType[]) Array.newInstance(array[0].getClass(), 10);
+
+        return output;
     }
 }
